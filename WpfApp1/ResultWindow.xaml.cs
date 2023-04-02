@@ -23,13 +23,15 @@ namespace WpfApp1
     {
         private Boolean Multyplayer;
         private string winner;
+        private Game gameWindow;
 
 
 
-        public ResultWindow(Boolean multyplayer, string winner)
+        public ResultWindow(Boolean multyplayer, string winner, Game window)
         {
             InitializeComponent();
             Multyplayer = multyplayer;
+            this.gameWindow = window;
             if (winner != "C")
             {
                 this.winner = winner;
@@ -46,14 +48,14 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Game gg = new Game(Multyplayer);
-            gg.Show();
+            this.gameWindow.ResetGame();
             this.Close();
+
 
         }
 
         private void Exit_Button_Click(object sender, RoutedEventArgs e) { 
-        
+            this.gameWindow.Close();
             this.Close();
         }
 

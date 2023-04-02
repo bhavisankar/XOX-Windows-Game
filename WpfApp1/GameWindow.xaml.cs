@@ -49,13 +49,13 @@ namespace WpfApp1
                 {
                     if (isXOX(PLAYER_A))
                     {
-                        Close();
-                        ResultWindow result = new ResultWindow(isMultyPlayer, "A");
+                        //Close();
+                        ResultWindow result = new ResultWindow(isMultyPlayer, "A", this);
                         result.Show();
                         return;
                     } else if (boardSize == 9) {
-                        Close();
-                        ResultWindow result = new ResultWindow(isMultyPlayer, "C");
+                       // Close();
+                        ResultWindow result = new ResultWindow(isMultyPlayer, "C", this);
                         result.Show();
                         return;
                     }
@@ -72,8 +72,8 @@ namespace WpfApp1
 
                         if (isXOX(PLAYER_B) || boardSize == 9)
                         {
-                            Close();
-                            ResultWindow result = new ResultWindow(isMultyPlayer, "B");
+                           // Close();
+                            ResultWindow result = new ResultWindow(isMultyPlayer, "B", this);
                             result.Show();
                             return;
                         }
@@ -81,8 +81,8 @@ namespace WpfApp1
 
                         if (boardSize == 9)
                         {
-                            Close();
-                            ResultWindow result = new ResultWindow(isMultyPlayer, "C");
+                         //   Close();
+                            ResultWindow result = new ResultWindow(isMultyPlayer, "C", this);
                             result.Show();
                             return;
                         }
@@ -103,14 +103,14 @@ namespace WpfApp1
                 {
                     if (isXOX(PLAYER_B))
                     {
-                        Close();
-                        ResultWindow result = new ResultWindow(isMultyPlayer, "B");
+                    //    Close();
+                        ResultWindow result = new ResultWindow(isMultyPlayer, "B", this);
                         result.Show();
                     }
                     else if (boardSize == 9)
                     {
-                        Close();
-                        ResultWindow result = new ResultWindow(isMultyPlayer, "C");
+                    //    Close();
+                        ResultWindow result = new ResultWindow(isMultyPlayer, "C", this);
                         result.Show();
                     }
                     current_player = PLAYER_A;
@@ -212,12 +212,31 @@ namespace WpfApp1
 
         }
 
-        public static void closeWindow() { 
-            Game.closeWindow();
+        public void ResetGame() {
+            ResetButtons();
+            ResetBoard();
+            boardSize = 0;
         }
 
-        private void findAppropriateMove() { 
-           
+        private void ResetButtons() { 
+            buttonOne.Content = "";
+            buttonTwo.Content = "";
+            buttonThree.Content = "";
+            buttonFour.Content = "";
+            buttonFive.Content = "";
+            buttonSix.Content = "";
+            buttonSeven.Content = "";
+            buttonEight.Content = "";
+            buttonNine.Content = "";
+        }
+
+        private void ResetBoard() { 
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++) {
+                    this.board[i, j] = DEFAULT_CONTENT;
+                }
+            }
         }
 
         private int FindHorizontalOccupancy() {
@@ -299,6 +318,17 @@ namespace WpfApp1
 
                 }
 
+            }
+            int count = 0;
+            if(bIndex == 0) { 
+            for (int i= 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                        bIndex++;
+                    if (board[i, j] == DEFAULT_CONTENT) {
+                        return bIndex;
+                    }
+                }
+            }
             }
             return bIndex;
         }
