@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfApp1.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="134,36,132,0" Width="NaN" Height="120" VerticalAlignment="Top">
+            <Label Content="Result" Width="75" RenderTransformOrigin="0.558,1.35" Height="37" FontSize="20"/>
+            <Label Name="win" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,100" FontSize="14"/>
+        </StackPanel>
+        <Button Content="Restart" HorizontalAlignment="Left" Margin="134,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.431,0.678" Height="27" Width="247" Click="Button_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="116" Margin="0,36,0,0" VerticalAlignment="Top" Width="538" RenderTransformOrigin="0.5,0"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="419,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.431,0.678" Height="27" Width="250" Click="Exit_Button_Click"/>
+
+
+    </Grid>
+</Window>
